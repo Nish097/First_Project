@@ -1,0 +1,525 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/5/2024 3:17:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-263B43H"
+  DTS:CreatorName="DESKTOP-263B43H\Nishi Sen"
+  DTS:DTSID="{1040F69A-11ED-4D7C-954A-65301836C55C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="pkg_file_task"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{5B18FEC2-029D-4B61-8D8B-23E0A6D4DADA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Package.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{32733EFE-F85A-46B2-8568-709FADA7A500}"
+      DTS:ObjectName="Package.dtsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::_v_file_location]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Nishi Sen\Desktop\SSIS\Integration Services Project1\Integration Services Project1\Package.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRC_SQL_DESKTOP-263B43H.ordersummary]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A123047B-663E-490B-947F-4F4A014C27E9}"
+      DTS:ObjectName="SRC_SQL_DESKTOP-263B43H.ordersummary">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-263B43H;Initial Catalog=ordersummary;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A123047B-663E-490B-947F-4F4A014C27E9}DESKTOP-263B43H.ordersummary;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9D206BB-D14C-4D82-BC09-A39018DC3895}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="_v_file_location">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Nishi Sen\Desktop\SSIS\Integration Services Project1\Integration Services Project1\Package.dtsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Package Task"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{EE80F968-E963-4133-8AC8-4869ECE60BAC}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Package Task"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <Connection>{32733EFE-F85A-46B2-8568-709FADA7A500}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{F3DEA654-8BDC-46A7-A4D7-86B4C2CE0AD2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E7D5A0D6-58C7-4A68-A9A8-35F3B1EFA85D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task 1"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{c6b291fc-cea5-488c-a71e-b1456c0a0867}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{825cb6d0-b6be-43e5-94e8-dcedd5d866bf}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{97f1ff3a-103d-4cda-b5c4-a694fe474398}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task 1"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{87f0dc5c-5ea4-4f6f-97e9-a53ade7b5aad}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task 2"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{088072ce-156b-4bb5-acf3-1395f2aa88cf}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 2"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task 3"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{65ec1fb1-34a3-43ac-85b8-1ad7f6b54c8c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 3"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task 4"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{60596393-a37f-4bb8-b329-a6085067f3f8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 4"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2AD73CCD-474B-4C28-A58E-2D49C1A209A5}"
+          DTS:From="Package\Sequence Container 1\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container 1\Data Flow Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B17E92D6-FFDB-4693-A65A-3DD3C81937F1}"
+          DTS:From="Package\Sequence Container 1\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container 1\Data Flow Task 2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container 1.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA849C92-A1CD-476D-B2A8-D04A9B19756A}"
+          DTS:From="Package\Sequence Container 1\Data Flow Task 2"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container 1\Data Flow Task 3" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container 1.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{611DD0CF-3626-4B5F-B27D-7C9F8D184945}"
+          DTS:From="Package\Sequence Container 1\Data Flow Task 3"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container 1\Data Flow Task 4" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container 1.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{65A45515-5EB8-4E56-B53F-65E493B204B0}"
+          DTS:From="Package\Sequence Container 1\Data Flow Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Sequence Container 1\Data Flow Task 4" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A2B29BE-F258-4CA4-A154-179B1D0BD06A}"
+      DTS:From="Package\Sequence Container 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\Execute Package Task"
+          TopLeft="758.263854991853,75.3391804593407" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="5.50000000000001,5.50000000000004" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task 1"
+          TopLeft="219.5,5.50000000000004" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="378.666666666667,102.666666666667"
+          Size="378.666666666667,145.333333333334"
+          Id="Package\Sequence Container"
+          TopLeft="371.597205610532,576.865490742154" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container 1\Data Flow Task"
+          TopLeft="6.88888882680061,7.0204678195629" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container 1\Data Flow Task 1"
+          TopLeft="4.80555558659967,211.593567243115" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container 1\Data Flow Task 2"
+          TopLeft="143.5,108.166666666667" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container 1\Data Flow Task 3"
+          TopLeft="219.5,210.833333333334" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Sequence Container 1\Data Flow Task 4"
+          TopLeft="219.5,313.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint]"
+          TopLeft="59.3333332712451,49.6871344862296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.1388889820213,161.906432756885"
+              Start="0,0"
+              End="22.1388889820213,154.406432756885">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.7657799150172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.7657799150172"
+                    Point2="0,65.7657799150172"
+                    Point3="4,65.7657799150172" />
+                  <mssgle:LineSegment
+                    End="18.1388889820213,65.7657799150172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.1388889820213,65.7657799150172"
+                    Point2="22.1388889820213,65.7657799150172"
+                    Point3="22.1388889820213,69.7657799150172" />
+                  <mssgle:LineSegment
+                    End="22.1388889820213,154.406432756885" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="107.777777715689,49.6871344862296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.388888950977,58.4795321804372"
+              Start="0,0"
+              End="112.388888950977,50.9795321804372">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7541645345666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7541645345666"
+                    Point2="0,23.7541645345666"
+                    Point3="4,23.7541645345666" />
+                  <mssgle:LineSegment
+                    End="108.388888950977,23.7541645345666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.388888950977,23.7541645345666"
+                    Point2="112.388888950977,23.7541645345666"
+                    Point3="112.388888950977,27.7541645345666" />
+                  <mssgle:LineSegment
+                    End="112.388888950977,50.9795321804372" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint 2]"
+          TopLeft="220.166666666667,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76,60.0000000000001"
+              Start="0,0"
+              End="76,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="72,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72,30"
+                    Point2="76,30"
+                    Point3="76,34" />
+                  <mssgle:LineSegment
+                    End="76,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint 3]"
+          TopLeft="296.166666666667,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.2222222222222,60.0000000000001"
+              Start="0,0"
+              End="24.2222222222222,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6282271944923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6282271944923"
+                    Point2="0,35.6282271944923"
+                    Point3="4,35.6282271944923" />
+                  <mssgle:LineSegment
+                    End="20.2222222222222,35.6282271944923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.2222222222222,35.6282271944923"
+                    Point2="24.2222222222222,35.6282271944923"
+                    Point3="24.2222222222222,39.6282271944923" />
+                  <mssgle:LineSegment
+                    End="24.2222222222222,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container 1.PrecedenceConstraints[Constraint 4]"
+          TopLeft="81.4722222532663,254.260233909782">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190.472222191178,59.2397660902186"
+              Start="0,0"
+              End="190.472222191178,51.7397660902186">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1767974201814" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1767974201814"
+                    Point2="0,35.1767974201814"
+                    Point3="4,35.1767974201814" />
+                  <mssgle:LineSegment
+                    End="186.472222191178,35.1767974201814" />
+                  <mssgle:CubicBezierSegment
+                    Point1="186.472222191178,35.1767974201814"
+                    Point2="190.472222191178,35.1767974201814"
+                    Point3="190.472222191178,39.1767974201814" />
+                  <mssgle:LineSegment
+                    End="190.472222191178,51.7397660902186" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="378.666666666667,410.666666666667"
+          Size="378.666666666667,453.333333333334"
+          Id="Package\Sequence Container 1"
+          TopLeft="357.013872929125,10.1208574260164" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="546.347206262458,463.45419075935">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5833326814069,113.411299982805"
+              Start="0,0"
+              End="14.5833326814069,105.911299982805">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.7056499914023" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.7056499914023"
+                    Point2="0,56.7056499914023"
+                    Point3="4,56.7056499914023" />
+                  <mssgle:LineSegment
+                    End="10.5833326814069,56.7056499914023" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5833326814069,56.7056499914023"
+                    Point2="14.5833326814069,56.7056499914023"
+                    Point3="14.5833326814069,60.7056499914023" />
+                  <mssgle:LineSegment
+                    End="14.5833326814069,105.911299982805" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.0127867842966,61.7056499914023,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

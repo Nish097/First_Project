@@ -1,0 +1,2023 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/6/2024 11:11:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-263B43H"
+  DTS:CreatorName="DESKTOP-263B43H\Nishi Sen"
+  DTS:DTSID="{FDD1C79D-4506-4295-816B-C5CBF178D44B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="pkg_mailtask"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{CF9F3559-A62C-4956-B713-B3B0045F07EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-263B43H.bank]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E704EEF6-A997-4CBD-87C2-1B6D04280B7E}"
+      DTS:ObjectName="DESKTOP-263B43H.bank">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-263B43H;Initial Catalog=bank;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-pkg_mailtask-{E704EEF6-A997-4CBD-87C2-1B6D04280B7E}DESKTOP-263B43H.bank;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-263B43H.bank 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3471B0A7-FC23-4BD8-9387-D66BCE7B224C}"
+      DTS:ObjectName="DESKTOP-263B43H.bank 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-263B43H;Initial Catalog=bank;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-pkg_mailtask-{3471B0A7-FC23-4BD8-9387-D66BCE7B224C}DESKTOP-263B43H.bank 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-263B43H.RegionalSale]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FB859CCF-D6B2-4DB9-96DD-45A03BFCA57F}"
+      DTS:ObjectName="DESKTOP-263B43H.RegionalSale">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-263B43H;Initial Catalog=RegionalSale;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-pkg_mailtask-{FB859CCF-D6B2-4DB9-96DD-45A03BFCA57F}DESKTOP-263B43H.RegionalSale;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-263B43H.SSISDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F16B6869-1446-4375-9254-549AC5F1AB04}"
+      DTS:ObjectName="DESKTOP-263B43H.SSISDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-263B43H;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-pkg_mailtask-{F16B6869-1446-4375-9254-549AC5F1AB04}DESKTOP-263B43H.SSISDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEND EMAIL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{339F7FB2-9D96-4E24-BDC8-DD90E10EF28C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEND EMAIL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SEND EMAIL\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SEND EMAIL\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SEND EMAIL\Derived Column.Inputs[Derived Column Input].Columns[Education]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Education"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Education]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Output].Columns[Education_abbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Output].Columns[Education_abbr]"
+                      name="Education_abbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Education]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(Education,3)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SEND EMAIL\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SEND EMAIL\Derived Column 1.Inputs[Derived Column Input].Columns[ApplicantIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ApplicantIncome"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ApplicantIncome]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ApplicantIncome]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(ApplicantIncome)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\Derived Column 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SEND EMAIL\Derived Column 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SEND EMAIL\Derived Column 2.Inputs[Derived Column Input].Columns[SaleDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SaleDate"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Output].Columns[SALE YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Output].Columns[SALE YEAR]"
+                      name="SALE YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR](#{Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleDate]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(SaleDate)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SEND EMAIL\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[loan_data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SEND EMAIL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-263B43H.SSISDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-263B43H.SSISDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Loan_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loan_ID"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_ID]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_ID]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Married]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Married"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Married]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Married]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Dependents]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Dependents"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dependents]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dependents]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Education]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Education"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Education]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Education]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Self_Employed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Self_Employed"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Self_Employed]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Self_Employed]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ApplicantIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ApplicantIncome"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ApplicantIncome]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApplicantIncome]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoapplicantIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CoapplicantIncome"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoapplicantIncome]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoapplicantIncome]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoanAmount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LoanAmount"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoanAmount]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoanAmount]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Loan_Amount_Term]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loan_Amount_Term"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_Amount_Term]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_Amount_Term]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Credit_History]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Credit_History"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Credit_History]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_History]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Property_Area]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Property_Area"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Area]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property_Area]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_ID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Married" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dependents" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Self_Employed" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ApplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CoapplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LoanAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_Amount_Term" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Credit_History" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property_Area" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\OLE DB Destination 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SALE_DST]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SEND EMAIL\OLE DB Destination 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-263B43H.SSISDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-263B43H.SSISDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[SaleID]"
+                      cachedDataType="i4"
+                      cachedName="SaleID"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleID]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[RegionID]"
+                      cachedDataType="i4"
+                      cachedName="RegionID"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[RegionID]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[RegionID]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[SaleDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SaleDate"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleDate]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[SaleAmount]"
+                      cachedDataType="numeric"
+                      cachedName="SaleAmount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleAmount]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleAmount]" />
+                    <inputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].Columns[SALE YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE YEAR"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SALE YEAR]"
+                      lineageId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Output].Columns[SALE YEAR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                      dataType="i4"
+                      name="SaleID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[RegionID]"
+                      dataType="i4"
+                      name="RegionID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      dataType="dbDate"
+                      name="SaleDate" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SaleAmount]"
+                      dataType="numeric"
+                      name="SaleAmount"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input].ExternalColumns[SALE YEAR]"
+                      dataType="i4"
+                      name="SALE YEAR" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Destination 2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Destination 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[test]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SEND EMAIL\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-263B43H.bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-263B43H.bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Loan_ID]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_ID]"
+                      name="Loan_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Married]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Married]"
+                      name="Married"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dependents]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dependents]"
+                      name="Dependents"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Education]"
+                      name="Education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Self_Employed]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Self_Employed]"
+                      name="Self_Employed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApplicantIncome]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApplicantIncome]"
+                      name="ApplicantIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoapplicantIncome]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoapplicantIncome]"
+                      name="CoapplicantIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoanAmount]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoanAmount]"
+                      name="LoanAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Loan_Amount_Term]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Loan_Amount_Term]"
+                      name="Loan_Amount_Term"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Credit_History]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_History]"
+                      name="Credit_History"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Property_Area]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property_Area]"
+                      name="Property_Area"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_ID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Married" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dependents" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Self_Employed" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ApplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CoapplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LoanAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_Amount_Term" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Credit_History" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property_Area" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Loan_ID]"
+                      name="Loan_ID" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Married]"
+                      name="Married" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dependents]"
+                      name="Dependents" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      name="Education" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Self_Employed]"
+                      name="Self_Employed" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApplicantIncome]"
+                      name="ApplicantIncome" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoapplicantIncome]"
+                      name="CoapplicantIncome" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoanAmount]"
+                      name="LoanAmount" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Loan_Amount_Term]"
+                      name="Loan_Amount_Term" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Credit_History]"
+                      name="Credit_History" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Property_Area]"
+                      name="Property_Area" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[test]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SEND EMAIL\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-263B43H.bank 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-263B43H.bank 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Loan_ID]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Loan_ID]"
+                      name="Loan_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Married]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Married]"
+                      name="Married"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dependents]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dependents]"
+                      name="Dependents"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Education]"
+                      name="Education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Self_Employed]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Self_Employed]"
+                      name="Self_Employed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ApplicantIncome]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ApplicantIncome]"
+                      name="ApplicantIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CoapplicantIncome]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CoapplicantIncome]"
+                      name="CoapplicantIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LoanAmount]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LoanAmount]"
+                      name="LoanAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Loan_Amount_Term]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Loan_Amount_Term]"
+                      name="Loan_Amount_Term"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Credit_History]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Credit_History]"
+                      name="Credit_History"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Property_Area]"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Property_Area]"
+                      name="Property_Area"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_ID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Married" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dependents" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Self_Employed" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ApplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CoapplicantIncome" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LoanAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_Amount_Term" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Credit_History" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property_Area" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Loan_ID]"
+                      name="Loan_ID" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Married]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Married]"
+                      name="Married" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dependents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dependents]"
+                      name="Dependents" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      name="Education" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Self_Employed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Self_Employed]"
+                      name="Self_Employed" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ApplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ApplicantIncome]"
+                      name="ApplicantIncome" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CoapplicantIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CoapplicantIncome]"
+                      name="CoapplicantIncome" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LoanAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LoanAmount]"
+                      name="LoanAmount" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Loan_Amount_Term]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Loan_Amount_Term]"
+                      name="Loan_Amount_Term" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Credit_History]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Credit_History]"
+                      name="Credit_History" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Property_Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Property_Area]"
+                      name="Property_Area" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SEND EMAIL\OLE DB Source 2"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 2"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SEND EMAIL\OLE DB Source 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-263B43H.RegionalSale]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-263B43H.RegionalSale]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleID]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleID]"
+                      name="SaleID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[RegionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[RegionID]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[RegionID]"
+                      name="RegionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleDate]"
+                      name="SaleDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleAmount]"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[SaleAmount]"
+                      name="SaleAmount"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleID]"
+                      dataType="i4"
+                      name="SaleID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[RegionID]"
+                      dataType="i4"
+                      name="RegionID" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      dataType="dbDate"
+                      name="SaleDate" />
+                    <externalMetadataColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[SaleAmount]"
+                      dataType="numeric"
+                      name="SaleAmount"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleID]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleID]"
+                      name="SaleID" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[RegionID]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[RegionID]"
+                      name="RegionID" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      dataType="dbDate"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      name="SaleDate" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleAmount]"
+                      dataType="numeric"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[SaleAmount]"
+                      name="SaleAmount"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SEND EMAIL.Paths[Derived Column Output]"
+              endId="Package\SEND EMAIL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\SEND EMAIL\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SEND EMAIL.Paths[Derived Column Output1]"
+              endId="Package\SEND EMAIL\OLE DB Destination 2.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\SEND EMAIL\Derived Column 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SEND EMAIL.Paths[OLE DB Source Output]"
+              endId="Package\SEND EMAIL\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\SEND EMAIL\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SEND EMAIL.Paths[OLE DB Source Output1]"
+              endId="Package\SEND EMAIL\Derived Column 2.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\SEND EMAIL\OLE DB Source 2.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SEND EMAIL.Paths[OLE DB Source Output2]"
+              endId="Package\SEND EMAIL\Derived Column 1.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\SEND EMAIL\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\SEND EMAIL"
+          TopLeft="289.99998703599,269.578944408498" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEND EMAIL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\SEND EMAIL\OLE DB Source"
+          TopLeft="808.461514367508,140.769226573981" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\SEND EMAIL\OLE DB Destination"
+          TopLeft="904.999973028899,410.999987751246" />
+        <AnnotationLayout
+          Text="j"
+          ParentId="Package\SEND EMAIL"
+          FontInfo="{assembly:Null}"
+          Size="32,60"
+          Id="9de29826-4fe3-4b30-bc64-0065a92eda11"
+          TopLeft="5.5,1380.99995884299" />
+        <AnnotationLayout
+          Text="l"
+          ParentId="Package\SEND EMAIL"
+          FontInfo="{assembly:Null}"
+          Size="32,60"
+          Id="58d9c92d-9ba0-4fa3-83c3-47d538fa43cf"
+          TopLeft="1171.99996507168,507.999984860421" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\SEND EMAIL\Derived Column"
+          TopLeft="838.384590398808,254.076915504841" />
+        <EdgeLayout
+          Id="Package\SEND EMAIL.Paths[OLE DB Source Output]"
+          TopLeft="885.794847700841,183.435893240647">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5897426979664,70.6410222641933"
+              Start="0,0"
+              End="30.5897426979664,63.1410222641933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3205111320967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.3205111320967"
+                    Point2="0,35.3205111320967"
+                    Point3="4,35.3205111320967" />
+                  <mssgle:LineSegment
+                    End="26.5897426979664,35.3205111320967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5897426979664,35.3205111320967"
+                    Point2="30.5897426979664,35.3205111320967"
+                    Point3="30.5897426979664,39.3205111320967" />
+                  <mssgle:LineSegment
+                    End="30.5897426979664,63.1410222641933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEND EMAIL.Paths[Derived Column Output]"
+          TopLeft="916.384590398808,296.743582171507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.9487159634248,114.256405579738"
+              Start="0,0"
+              End="75.9487159634248,106.756405579738">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.1282027898692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.1282027898692"
+                    Point2="0,57.1282027898692"
+                    Point3="4,57.1282027898692" />
+                  <mssgle:LineSegment
+                    End="71.9487159634248,57.1282027898692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.9487159634248,57.1282027898692"
+                    Point2="75.9487159634248,57.1282027898692"
+                    Point3="75.9487159634248,61.1282027898692" />
+                  <mssgle:LineSegment
+                    End="75.9487159634248,106.756405579738" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="j"
+          ParentId="Package\SEND EMAIL"
+          FontInfo="{assembly:Null}"
+          Size="32,60"
+          Id="dcef3ab0-eb57-417a-88b2-f384a77a831f"
+          TopLeft="5.5,1184.87176321256" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\SEND EMAIL\OLE DB Source 1"
+          TopLeft="433.846140916531,171.538456426217" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\SEND EMAIL\OLE DB Source 2"
+          TopLeft="154.615380007487,154.61538115373" />
+        <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\SEND EMAIL\OLE DB Destination 2"
+          TopLeft="188.461532844947,342.307683252372" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\SEND EMAIL\Derived Column 2"
+          TopLeft="213.846147473042,240.769224739992" />
+        <EdgeLayout
+          Id="Package\SEND EMAIL.Paths[OLE DB Source Output1]"
+          TopLeft="236.615380007487,197.282047820397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.8974341322214,43.4871769195949"
+              Start="0,0"
+              End="59.8974341322214,35.9871769195949">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7435884597974" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.7435884597974"
+                    Point2="0,21.7435884597974"
+                    Point3="4,21.7435884597974" />
+                  <mssgle:LineSegment
+                    End="55.8974341322214,21.7435884597974" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.8974341322214,21.7435884597974"
+                    Point2="59.8974341322214,21.7435884597974"
+                    Point3="59.8974341322214,25.7435884597974" />
+                  <mssgle:LineSegment
+                    End="59.8974341322214,35.9871769195949" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEND EMAIL.Paths[Derived Column Output1]"
+          TopLeft="296.512814139709,283.435891406659">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.0512812947616,58.871791845713"
+              Start="0,0"
+              End="-16.0512812947616,51.371791845713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4358959228565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.4358959228565"
+                    Point2="0,29.4358959228565"
+                    Point3="-4,29.4358959228565" />
+                  <mssgle:LineSegment
+                    End="-12.0512812947616,29.4358959228565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.0512812947616,29.4358959228565"
+                    Point2="-16.0512812947616,29.4358959228565"
+                    Point3="-16.0512812947616,33.4358959228565" />
+                  <mssgle:LineSegment
+                    End="-16.0512812947616,51.371791845713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\SEND EMAIL\Derived Column 1"
+          TopLeft="503.076908084063,284.615377279429" />
+        <EdgeLayout
+          Id="Package\SEND EMAIL.Paths[OLE DB Source Output2]"
+          TopLeft="511.179474249865,214.205123092884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.5641005008648,70.4102541865447"
+              Start="0,0"
+              End="74.5641005008648,62.9102541865447">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2051270932724" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.2051270932724"
+                    Point2="0,35.2051270932724"
+                    Point3="4,35.2051270932724" />
+                  <mssgle:LineSegment
+                    End="70.5641005008648,35.2051270932724" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.5641005008648,35.2051270932724"
+                    Point2="74.5641005008648,35.2051270932724"
+                    Point3="74.5641005008648,39.2051270932724" />
+                  <mssgle:LineSegment
+                    End="74.5641005008648,62.9102541865447" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEND EMAIL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEND EMAIL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEND EMAIL\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEND EMAIL\OLE DB Source 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEND EMAIL\OLE DB Destination 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

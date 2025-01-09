@@ -1,0 +1,2499 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/12/2024 5:15:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-263B43H"
+  DTS:CreatorName="DESKTOP-263B43H\Nishi Sen"
+  DTS:DTSID="{00243553-5321-4B87-973B-144838BD564C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PKG_VOTING"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{3CE1C814-DC1D-49D8-AEA5-3AD0DFB509A7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D7C407FD-A4B4-4406-9BB5-C6CE6227B437}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nishi Sen\Documents\Excel File\Voting figures.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{684DC7FC-596D-46A1-9865-A1C580C15AAC}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nishi Sen\Documents\Excel File\Shopping history.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4A85D1FE-F50A-4403-91F7-35037CEB1C17}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Nishi Sen\Documents\SSIS OUTPUT\VOTING_RESULT.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{5B21AE31-F8AA-4B20-BBEF-3B08E944692D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Area"
+              DTS:DTSID="{FD5AB336-DCB3-43A2-B975-9190F6289305}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Electorate"
+              DTS:DTSID="{A6384B9C-7209-45EE-A9F9-34F2F7A8FAFC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValidVotes"
+              DTS:DTSID="{73BB426D-3304-4E78-939D-89273216CBE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Remain"
+              DTS:DTSID="{2B92D5BD-4DBC-449A-9DBA-C76503A0EDDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Leave"
+              DTS:DTSID="{E968B46C-53E5-45BF-B8AA-CFD3D3719820}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{02BE000C-0563-4F1C-84D0-069F51CFEA2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vote Difference"
+              DTS:DTSID="{DE62DF69-2652-4595-92A9-968A6AB11BB3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Shopping Store"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3354A0DD-37C5-4DFE-8729-61BFC1690730}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Shopping Store"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Shopping Store\1 - SHOPPING PURCHASE"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="1 - SHOPPING PURCHASE"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Purchases$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[ShopDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[ShopDate]"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[ShopDate]"
+                      name="ShopDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Store]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Store]"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Store]"
+                      name="Store"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Item]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Item]"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Item]"
+                      name="Item"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Shelf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Shelf]"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Shelf]"
+                      name="Shelf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Unit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Unit]"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Unit]"
+                      name="Unit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      dataType="r8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[ShopDate]"
+                      dataType="date"
+                      name="ShopDate" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Store]"
+                      dataType="wstr"
+                      length="255"
+                      name="Store" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Item]"
+                      dataType="wstr"
+                      length="255"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Shelf]"
+                      dataType="wstr"
+                      length="255"
+                      name="Shelf" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Unit]"
+                      dataType="wstr"
+                      length="255"
+                      name="Unit" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                      dataType="r8"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].ExternalColumns[Price]"
+                      dataType="r8"
+                      name="Price" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Id]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ShopDate]"
+                      dataType="date"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ShopDate]"
+                      name="ShopDate" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Store]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Store]"
+                      name="Store" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Item]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Item]"
+                      name="Item" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Shelf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Shelf]"
+                      name="Shelf" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Unit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Unit]"
+                      name="Unit" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Price]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Shopping Store\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Shopping Store\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Shopping Store\Aggregate.Inputs[Aggregate Input 1].Columns[Store]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Store"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Store]" />
+                    <inputColumn
+                      refId="Package\Shopping Store\Aggregate.Inputs[Aggregate Input 1].Columns[Amount]"
+                      cachedDataType="r8"
+                      cachedName="Amount"
+                      lineageId="Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Shopping Store\Aggregate.Inputs[Aggregate Input 1].Columns[Item]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Item"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Item]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Shop Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Shop Name]"
+                      name="Shop Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Store]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Max Amount]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Max Amount]"
+                      name="Max Amount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Min Amount]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Min Amount]"
+                      name="Min Amount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">6</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Avg Amount]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Avg Amount]"
+                      name="Avg Amount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Number of Purchase]"
+                      dataType="ui8"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[Number of Purchase]"
+                      name="Number of Purchase">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Item]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[TotalAmount]"
+                      dataType="r8"
+                      lineageId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1].Columns[TotalAmount]"
+                      name="TotalAmount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Shopping Store\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Shopping Store\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Shopping Store\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Shopping Store\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Shopping Store\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input].Columns[Quantity]"
+                      cachedDataType="r8"
+                      cachedName="Quantity"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input].Columns[Price]"
+                      cachedDataType="r8"
+                      cachedName="Price"
+                      lineageId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Price]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Shopping Store\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Shopping Store\Derived Column.Outputs[Derived Column Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Quantity]} * #{Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output].Columns[Price]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Quantity * Price</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Shopping Store\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Shopping Store\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Shopping Store\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Shopping Store\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Shopping Store.Paths[Aggregate Output 1]"
+              endId="Package\Shopping Store\Conditional Split.Inputs[Conditional Split Input]"
+              name="Aggregate Output 1"
+              startId="Package\Shopping Store\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Shopping Store.Paths[Derived Column Output]"
+              endId="Package\Shopping Store\Aggregate.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\Shopping Store\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Shopping Store.Paths[Excel Source Output]"
+              endId="Package\Shopping Store\Derived Column.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\Shopping Store\1 - SHOPPING PURCHASE.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Voting"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B06F0B13-EE71-4663-BA71-F6FA30273B02}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Voting"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Voting\1 - Voting Figure Sheet"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="1 - Voting Figure Sheet"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Voting$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Voting\1 - Voting Figure Sheet.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Area]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Area]"
+                      length="255"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Electorate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Electorate]"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Electorate]"
+                      name="Electorate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[ValidVotes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[ValidVotes]"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[ValidVotes]"
+                      name="ValidVotes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Remain]"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]"
+                      name="Remain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Leave]"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]"
+                      name="Leave"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Electorate]"
+                      dataType="r8"
+                      name="Electorate" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[ValidVotes]"
+                      dataType="r8"
+                      name="ValidVotes" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Remain]"
+                      dataType="r8"
+                      name="Remain" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].ExternalColumns[Leave]"
+                      dataType="r8"
+                      name="Leave" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Electorate]"
+                      dataType="r8"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Electorate]"
+                      name="Electorate" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ValidVotes]"
+                      dataType="r8"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ValidVotes]"
+                      name="ValidVotes" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Remain]"
+                      dataType="r8"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Remain]"
+                      name="Remain" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Leave]"
+                      dataType="r8"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[Leave]"
+                      name="Leave" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\2 - Leave Or Remain"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="2 - Leave Or Remain"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]" />
+                    <inputColumn
+                      refId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\2 - Leave Or Remain.Outputs[Leavers]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Leavers"
+                  synchronousInputId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]} &gt; #{Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Leave &gt; Remain</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Voting\2 - Leave Or Remain.Outputs[Remainers]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Remainers"
+                  synchronousInputId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Voting\2 - Leave Or Remain.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\2 - Leave Or Remain.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Voting\2 - Leave Or Remain.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Voting\2 - Leave Or Remain.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Voting\2 - Leave Or Remain.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\3 - Set Status to Leave"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="3 - Set Status to Leave"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Voting\3 - Set Status to Leave.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\3 - Set Status to Leave.Inputs[Derived Column Input].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Voting\3 - Set Status to Leave.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Output].Columns[Status]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Leave</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Voting\3 - Set Status to Leave.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\4 - Set Status to Remain"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="4 - Set Status to Remain"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Voting\4 - Set Status to Remain.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\4 - Set Status to Remain.Inputs[Derived Column Input].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Voting\4 - Set Status to Remain.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Output].Columns[Status]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Remain</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Voting\4 - Set Status to Remain.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\5 - Recombine"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="5 - Recombine"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Area]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Electorate]"
+                      cachedDataType="r8"
+                      cachedName="Electorate"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Electorate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[ValidVotes]"
+                      cachedDataType="r8"
+                      cachedName="ValidVotes"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[ValidVotes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 1].Columns[Status]"
+                      cachedDataType="r8"
+                      cachedName="Status"
+                      lineageId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Area]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Electorate]"
+                      cachedDataType="r8"
+                      cachedName="Electorate"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Electorate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[ValidVotes]"
+                      cachedDataType="r8"
+                      cachedName="ValidVotes"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[ValidVotes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Remain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output].Columns[Leave]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\5 - Recombine.Inputs[Union All Input 2].Columns[Status]"
+                      cachedDataType="r8"
+                      cachedName="Status"
+                      lineageId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Voting\5 - Recombine.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]"
+                      dataType="r8"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]"
+                      name="Electorate" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]"
+                      dataType="r8"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]"
+                      name="ValidVotes" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]"
+                      dataType="r8"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]"
+                      name="Remain" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]"
+                      dataType="r8"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]"
+                      name="Leave" />
+                    <outputColumn
+                      refId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]"
+                      dataType="r8"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]"
+                      name="Status" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\6 - Calculate absolute difference"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="6 - Calculate absolute difference"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]" />
+                    <inputColumn
+                      refId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output].Columns[Vote Difference]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output].Columns[Vote Difference]"
+                      name="Vote Difference"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ABS](#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]} - #{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ABS(Leave - Remain)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\7 - Sort by this"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="7 - Sort by this"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Voting\7 - Sort by this.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Electorate]"
+                      cachedDataType="r8"
+                      cachedName="Electorate"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[ValidVotes]"
+                      cachedDataType="r8"
+                      cachedName="ValidVotes"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Status]"
+                      cachedDataType="r8"
+                      cachedName="Status"
+                      lineageId="Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Voting\7 - Sort by this.Inputs[Sort Input].Columns[Vote Difference]"
+                      cachedDataType="r8"
+                      cachedName="Vote Difference"
+                      lineageId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output].Columns[Vote Difference]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Voting\7 - Sort by this.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Area]"
+                      name="Area">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Area]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Electorate]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Electorate]"
+                      name="Electorate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Electorate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[ValidVotes]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[ValidVotes]"
+                      name="ValidVotes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[ValidVotes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Remain]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Remain]"
+                      name="Remain">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Remain]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Leave]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Leave]"
+                      name="Leave">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Leave]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Status]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Status]"
+                      name="Status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\5 - Recombine.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Vote Difference]"
+                      dataType="r8"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Vote Difference]"
+                      name="Vote Difference"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output].Columns[Vote Difference]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Voting\8 - Output to Text File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="8 - Output to Text File"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Voting\8 - Output to Text File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Area]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Area]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Electorate]"
+                      cachedDataType="r8"
+                      cachedName="Electorate"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Electorate]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Electorate]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[ValidVotes]"
+                      cachedDataType="r8"
+                      cachedName="ValidVotes"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[ValidVotes]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[ValidVotes]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Remain]"
+                      cachedDataType="r8"
+                      cachedName="Remain"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Remain]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Remain]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Leave]"
+                      cachedDataType="r8"
+                      cachedName="Leave"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Leave]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Leave]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Status]"
+                      cachedDataType="r8"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].Columns[Vote Difference]"
+                      cachedDataType="r8"
+                      cachedName="Vote Difference"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Vote Difference]"
+                      lineageId="Package\Voting\7 - Sort by this.Outputs[Sort Output].Columns[Vote Difference]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Electorate]"
+                      dataType="r8"
+                      name="Electorate" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[ValidVotes]"
+                      dataType="r8"
+                      name="ValidVotes" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Remain]"
+                      dataType="r8"
+                      name="Remain" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Leave]"
+                      dataType="r8"
+                      name="Leave" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Status]"
+                      dataType="r8"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input].ExternalColumns[Vote Difference]"
+                      dataType="r8"
+                      name="Vote Difference" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Voting.Paths[Derived Column Output]"
+              endId="Package\Voting\5 - Recombine.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Voting\3 - Set Status to Leave.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Voting.Paths[Derived Column Output1]"
+              endId="Package\Voting\5 - Recombine.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Voting\4 - Set Status to Remain.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Voting.Paths[Derived Column Output2]"
+              endId="Package\Voting\7 - Sort by this.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Voting\6 - Calculate absolute difference.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Voting.Paths[Excel Source Output]"
+              endId="Package\Voting\2 - Leave Or Remain.Inputs[Conditional Split Input]"
+              name="Excel Source Output"
+              startId="Package\Voting\1 - Voting Figure Sheet.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Voting.Paths[Leavers]"
+              endId="Package\Voting\3 - Set Status to Leave.Inputs[Derived Column Input]"
+              name="Leavers"
+              startId="Package\Voting\2 - Leave Or Remain.Outputs[Leavers]" />
+            <path
+              refId="Package\Voting.Paths[Remainers]"
+              endId="Package\Voting\4 - Set Status to Remain.Inputs[Derived Column Input]"
+              name="Remainers"
+              startId="Package\Voting\2 - Leave Or Remain.Outputs[Remainers]" />
+            <path
+              refId="Package\Voting.Paths[Sort Output]"
+              endId="Package\Voting\8 - Output to Text File.Inputs[Flat File Destination Input]"
+              name="Sort Output"
+              startId="Package\Voting\7 - Sort by this.Outputs[Sort Output]" />
+            <path
+              refId="Package\Voting.Paths[Union All Output 1]"
+              endId="Package\Voting\6 - Calculate absolute difference.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\Voting\5 - Recombine.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Shopping Store"
+          TopLeft="297.499986700714,100.578946264084" />
+        <NodeLayout
+          Size="109.333333333334,42.6666666666667"
+          Id="Package\Voting"
+          TopLeft="123.124994495884,106.05263041451" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Shopping Store">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Shopping Store\Conditional Split"
+          TopLeft="33.5,319.5" />
+        <NodeLayout
+          Size="129.333333333334,48.6666666666667"
+          Id="Package\Shopping Store\Aggregate"
+          TopLeft="47.5,210.833333333334" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Shopping Store\1 - SHOPPING PURCHASE"
+          TopLeft="5.5,5.50000000000004" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Shopping Store\Derived Column"
+          TopLeft="34.1666666666667,108.166666666667" />
+        <EdgeLayout
+          Id="Package\Shopping Store.Paths[Excel Source Output]"
+          TopLeft="112.166666666667,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Shopping Store.Paths[Derived Column Output]"
+          TopLeft="112.166666666667,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Shopping Store.Paths[Aggregate Output 1]"
+          TopLeft="112.166666666667,259.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Shopping Store\1 - SHOPPING PURCHASE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Voting">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Voting\2 - Leave Or Remain"
+          TopLeft="223.166666666667,108.166666666667" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\Voting\5 - Recombine"
+          TopLeft="243.166666666667,313.5" />
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\Voting\3 - Set Status to Leave"
+          TopLeft="5.5,210.833333333333" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Voting\8 - Output to Text File"
+          TopLeft="415.969696918898,543.788676229215" />
+        <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\Voting\7 - Sort by this"
+          TopLeft="161.70076175401,500.394737315392" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Voting\4 - Set Status to Remain"
+          TopLeft="222.401515126115,212.07735245843" />
+        <NodeLayout
+          Size="232,42.6666666666667"
+          Id="Package\Voting\6 - Calculate absolute difference"
+          TopLeft="226.37878767559,419.276714479409" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\Voting\1 - Voting Figure Sheet"
+          TopLeft="217.833333333333,5.49999999999993" />
+        <EdgeLayout
+          Id="Package\Voting.Paths[Derived Column Output2]"
+          TopLeft="342.37878767559,461.943381146076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.67802592158,38.4513561693167"
+              Start="0,0"
+              End="-106.67802592158,30.9513561693167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.2256780846584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.2256780846584"
+                    Point2="0,19.2256780846584"
+                    Point3="-4,19.2256780846584" />
+                  <mssgle:LineSegment
+                    End="-102.67802592158,19.2256780846584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.67802592158,19.2256780846584"
+                    Point2="-106.67802592158,19.2256780846584"
+                    Point3="-106.67802592158,23.2256780846584" />
+                  <mssgle:LineSegment
+                    End="-106.67802592158,30.9513561693167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Derived Column Output1]"
+          TopLeft="319.734848459449,254.744019125097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.6540404294402,58.7559808749032"
+              Start="0,0"
+              End="21.6540404294402,51.2559808749032">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8798755723807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.8798755723807"
+                    Point2="0,34.8798755723807"
+                    Point3="4,34.8798755723807" />
+                  <mssgle:LineSegment
+                    End="17.6540404294402,34.8798755723807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.6540404294402,34.8798755723807"
+                    Point2="21.6540404294402,34.8798755723807"
+                    Point3="21.6540404294402,38.8798755723807" />
+                  <mssgle:LineSegment
+                    End="21.6540404294402,51.2559808749032" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Derived Column Output]"
+          TopLeft="99.5,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.777777777778,60.0000000000001"
+              Start="0,0"
+              End="194.777777777778,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.618374558304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.618374558304"
+                    Point2="0,35.618374558304"
+                    Point3="4,35.618374558304" />
+                  <mssgle:LineSegment
+                    End="190.777777777778,35.618374558304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.777777777778,35.618374558304"
+                    Point2="194.777777777778,35.618374558304"
+                    Point3="194.777777777778,39.618374558304" />
+                  <mssgle:LineSegment
+                    End="194.777777777778,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Union All Output 1]"
+          TopLeft="317.833333333333,356.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.5454543422571,63.1100478127423"
+              Start="0,0"
+              End="24.5454543422571,55.6100478127423">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5550239063711" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5550239063711"
+                    Point2="0,31.5550239063711"
+                    Point3="4,31.5550239063711" />
+                  <mssgle:LineSegment
+                    End="20.5454543422571,31.5550239063711" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5454543422571,31.5550239063711"
+                    Point2="24.5454543422571,31.5550239063711"
+                    Point3="24.5454543422571,35.5550239063711" />
+                  <mssgle:LineSegment
+                    End="24.5454543422571,55.6100478127423" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Sort Output]"
+          TopLeft="309.70076175401,521.728070648726">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.268935164888,43.3939389138226"
+              Start="0,0"
+              End="98.7689351648883,43.3939389138226">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.1344675824442,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.1344675824442,0"
+                    Point2="53.1344675824442,0"
+                    Point3="53.1344675824442,4" />
+                  <mssgle:LineSegment
+                    End="53.1344675824442,39.3939389138226" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.1344675824442,39.3939389138226"
+                    Point2="53.1344675824442,43.3939389138226"
+                    Point3="57.1344675824442,43.3939389138226" />
+                  <mssgle:LineSegment
+                    End="98.7689351648883,43.3939389138226" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Remainers]"
+          TopLeft="340.944444444444,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.2095959849958,61.244019125097"
+              Start="0,0"
+              End="-21.2095959849958,53.744019125097">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8237592311784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8237592311784"
+                    Point2="0,24.8237592311784"
+                    Point3="-4,24.8237592311784" />
+                  <mssgle:LineSegment
+                    End="-17.2095959849958,24.8237592311784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.2095959849958,24.8237592311784"
+                    Point2="-21.2095959849958,24.8237592311784"
+                    Point3="-21.2095959849958,28.8237592311784" />
+                  <mssgle:LineSegment
+                    End="-21.2095959849958,53.744019125097" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.2973761174979,29.8237592311784,47.38515625,9.470703125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Leavers]"
+          TopLeft="284.055555555556,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184.555555555556,60.0000000000001"
+              Start="0,0"
+              End="-184.555555555556,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.319526627219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.319526627219"
+                    Point2="0,24.319526627219"
+                    Point3="-4,24.319526627219" />
+                  <mssgle:LineSegment
+                    End="-180.555555555556,24.319526627219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180.555555555556,24.319526627219"
+                    Point2="-184.555555555556,24.319526627219"
+                    Point3="-184.555555555556,28.319526627219" />
+                  <mssgle:LineSegment
+                    End="-184.555555555556,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-109.710355902778,29.319526627219,34.86515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Voting.Paths[Excel Source Output]"
+          TopLeft="312.5,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Use a variety of transforms to summarise Brexit voting figures by leave or remain status."
+          ParentId="Package\Voting"
+          Size="248.666666666667,91.3333333333334"
+          Id="86ef1796-2ecc-48d3-becf-3e9feb11af1b"
+          TopLeft="612.803031928612,6.29745379341217">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="14"
+              Color="#FFFFFFFF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Voting\1 - Voting Figure Sheet">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
